@@ -7,14 +7,15 @@ namespace HotelReservationsManager.Entities
 {
     public class Reservation
     {
-        public Room ReservedRoom { get; set; }
-        public User ReservationMaker { get; set; }
-        public List<Client> ClientsInTheRoom { get; set; }
-        public DateTime DateОfАccommodation { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public bool IsbreakfastIncluded { get; set; }
-        public bool AllInclusive { get; set; }
-        public decimal DueAmount { get; set; }
+        public int Id { get; set; }
+        public virtual Room ReservedRoom { get; set; }
+        public virtual User ReservationMaker { get; set; }
+        public virtual List<Client> ClientsInTheRoom { get; set; }
+        public virtual DateTime DateОfАccommodation { get; set; }
+        public virtual DateTime ReleaseDate { get; set; }
+        public virtual bool IsbreakfastIncluded { get; set; }
+        public virtual bool AllInclusive { get; set; }
+        public virtual decimal DueAmount { get; set; }
 
     }
 }

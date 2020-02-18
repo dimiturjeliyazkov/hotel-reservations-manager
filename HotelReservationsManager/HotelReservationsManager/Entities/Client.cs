@@ -7,10 +7,12 @@ namespace HotelReservationsManager.Entities
 {
     public class Client
     {
+        public int Id { get; set; }
         public string Forename { get; set; }
         public string MiddleName { get; set; }
         public string SurName { get; set; }
         public string Email { get; set; }
         public bool IsAdult { get; set; }
+
     }
 }
