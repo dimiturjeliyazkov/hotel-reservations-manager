@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HotelReservationsManager.Models;
+using System.Net;
 
 namespace HotelReservationsManager.Controllers
 {
@@ -23,9 +24,28 @@ namespace HotelReservationsManager.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult Login()
         {
-            return View();
+            return View(new LoginVM());
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginVM model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                AuthenticationManager.Authenticate(model.Username, model.Password);
+
+                if (AuthenticationManager.LoggedUser == null)
+                    ModelState.AddModelError("authenticationFailed", "Wrong username or password!");
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
