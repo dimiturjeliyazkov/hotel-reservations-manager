@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HotelReservationsManager.Models;
-using System.Net;
+
 
 namespace HotelReservationsManager.Controllers
 {
@@ -34,9 +34,9 @@ namespace HotelReservationsManager.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                AuthenticationManager.Authenticate(model.Username, model.Password);
-
-                if (AuthenticationManager.LoggedUser == null)
+              //  AuthenticationManager.Authenticate(model.Username, model.Password);
+//
+              //  if (AuthenticationManager.LoggedUser == null)
                     ModelState.AddModelError("authenticationFailed", "Wrong username or password!");
             }
 
