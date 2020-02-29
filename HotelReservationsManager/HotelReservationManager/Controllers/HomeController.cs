@@ -14,6 +14,15 @@ namespace HotelReservationManager.Controllers
             return View();
         }
 
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+
+        public ActionResult RoomIndex()
+        {
+            return View();
+        }
         public ActionResult Login()
         {
             return View(new LoginVM());
@@ -34,8 +43,11 @@ namespace HotelReservationManager.Controllers
             {
                 return View(model);
             }
-
-            return RedirectToAction("Index", "Home");
+            if (AuthenticationManager.LoggedUser.UserName == "admin")
+            {
+                return RedirectToAction("AdminIndex", "Users");
+            }
+            else return RedirectToAction("RoomIndex", "Rooms");
         }
 
         public ActionResult Contact()
@@ -44,5 +56,7 @@ namespace HotelReservationManager.Controllers
 
             return View();
         }
+
+
     }
 }

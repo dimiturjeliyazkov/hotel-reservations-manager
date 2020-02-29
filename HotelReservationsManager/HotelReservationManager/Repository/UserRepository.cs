@@ -12,6 +12,8 @@ namespace HotelReservationsManager.Repository
     {
         private readonly HotelReservationManagerDb _dbContext;
 
+
+
         public UserRepository(HotelReservationManagerDb dbContext)
         {
             this._dbContext = dbContext;
