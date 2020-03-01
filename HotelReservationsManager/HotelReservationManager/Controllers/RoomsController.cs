@@ -1,17 +1,13 @@
-﻿using HotelReservationManager.Models.Filters;
-using HotelReservationManager.Models.Rooms;
-using HotelReservationsManager;
+﻿using HotelReservationsManager.Models.Filters;
+using HotelReservationsManager.Models.Rooms;
 using HotelReservationsManager.Entities;
 using HotelReservationsManager.Models;
-using HotelReservationsManager.Models.Rooms;
 using HotelReservationsManager.Repository;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace HotelReservationManager.Controllers
+namespace HotelReservationsManager.Controllers
 {
     public class RoomsController: Controller
     {
@@ -19,7 +15,7 @@ namespace HotelReservationManager.Controllers
 
         public RoomsController()
         {
-            this._roomRepository = new RoomRepository(new HotelReservationManagerDb());
+            this._roomRepository = new RoomRepository(new HotelReservationsManagerDb());
         }
         public ActionResult RoomIndex(RoomIndexVM model)
         {
@@ -76,7 +72,7 @@ namespace HotelReservationManager.Controllers
                 };
             }
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 
@@ -119,7 +115,7 @@ namespace HotelReservationManager.Controllers
                 item = new RoomsEditVM();
             
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 

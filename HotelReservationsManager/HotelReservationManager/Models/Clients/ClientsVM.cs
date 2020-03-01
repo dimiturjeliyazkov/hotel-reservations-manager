@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HotelReservationManager.Models.Clients
+namespace HotelReservationsManager.Models.Clients
 {
     public class ClientsVM
     {

@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
 using System.Web.Mvc;
-using HotelReservationManager.Data;
-using HotelReservationManager.Models;
-using HotelReservationsManager;
-using HotelReservationsManager.Entities;
 using HotelReservationsManager.Models;
+using HotelReservationsManager.Entities;
 using HotelReservationsManager.Repository;
 
-namespace HotelReservationManager.Controllers
+namespace HotelReservationsManager.Controllers
 {
     public class UsersController : Controller
     {
@@ -25,7 +15,7 @@ namespace HotelReservationManager.Controllers
 
         public UsersController()
         {
-            this._userRepository = new UserRepository(new HotelReservationManagerDb());
+            this._userRepository = new UserRepository(new HotelReservationsManagerDb());
         }
 
         public ActionResult AdminIndex(UsersIndexVM model)
@@ -91,7 +81,7 @@ namespace HotelReservationManager.Controllers
                 };
             }
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 
@@ -135,7 +125,7 @@ namespace HotelReservationManager.Controllers
                 item = new UsersEditVM();
             
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 

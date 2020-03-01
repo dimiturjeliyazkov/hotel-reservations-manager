@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservationsManager
 {
-    public class HotelReservationManagerDb:DbContext
+    public class HotelReservationsManagerDb:DbContext
     {
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }

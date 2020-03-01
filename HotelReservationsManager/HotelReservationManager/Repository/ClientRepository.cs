@@ -10,9 +10,9 @@ namespace HotelReservationsManager.Repository
 {
     public class ClientRepository
     {
-        private readonly HotelReservationManagerDb _dbContext;
+        private readonly HotelReservationsManagerDb _dbContext;
 
-        public ClientRepository(HotelReservationManagerDb dbContext)
+        public ClientRepository(HotelReservationsManagerDb dbContext)
         {
             this._dbContext = dbContext;
         }

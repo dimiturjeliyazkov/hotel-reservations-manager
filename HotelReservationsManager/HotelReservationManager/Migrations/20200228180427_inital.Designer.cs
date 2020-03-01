@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace HotelReservationManager.Migrations
+namespace HotelReservationsManager.Migrations
 {
-    [DbContext(typeof(HotelReservationManagerDb))]
+    [DbContext(typeof(HotelReservationsManagerDb))]
     [Migration("20200228180427_inital")]
     partial class inital
     {

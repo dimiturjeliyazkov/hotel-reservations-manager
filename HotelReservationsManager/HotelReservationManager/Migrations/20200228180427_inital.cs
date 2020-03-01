@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace HotelReservationManager.Migrations
+namespace HotelReservationsManager.Migrations
 {
     public partial class inital : Migration
     {

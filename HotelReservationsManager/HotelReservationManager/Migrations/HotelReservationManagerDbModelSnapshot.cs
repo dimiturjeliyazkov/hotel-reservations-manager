@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace HotelReservationManager.Migrations
+namespace HotelReservationsManager.Migrations
 {
-    [DbContext(typeof(HotelReservationManagerDb))]
-    partial class HotelReservationManagerDbModelSnapshot : ModelSnapshot
+    [DbContext(typeof(HotelReservationsManagerDb))]
+    partial class HotelReservationsManagerDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

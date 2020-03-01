@@ -1,6 +1,6 @@
-﻿using HotelReservationManager.Models.Clients;
-using HotelReservationManager.Models.Filters;
-using HotelReservationManager.Models.Rooms;
+﻿using HotelReservationsManager.Models.Clients;
+using HotelReservationsManager.Models.Filters;
+using HotelReservationsManager.Models.Rooms;
 using System;
 using System.Collections.Generic;
 using System.Linq;

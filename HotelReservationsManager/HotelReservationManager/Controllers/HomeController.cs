@@ -1,11 +1,7 @@
 ﻿using HotelReservationsManager.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace HotelReservationManager.Controllers
+namespace HotelReservationsManager.Controllers
 {
     public class HomeController : Controller
     {

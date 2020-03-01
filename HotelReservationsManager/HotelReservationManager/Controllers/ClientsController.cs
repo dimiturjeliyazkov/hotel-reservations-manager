@@ -3,15 +3,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using HotelReservationManager.Models.Clients;
-using HotelReservationManager.Models.Filters;
-using HotelReservationsManager;
+using HotelReservationsManager.Models.Clients;
+using HotelReservationsManager.Models.Filters;
 using HotelReservationsManager.Entities;
 using HotelReservationsManager.Models;
-using HotelReservationsManager.Models.Clients;
 using HotelReservationsManager.Repository;
 
-namespace HotelReservationManager.Controllers
+namespace HotelReservationsManager.Controllers
 {
     public class ClientsController : Controller
     {
@@ -19,7 +17,7 @@ namespace HotelReservationManager.Controllers
 
         public ClientsController()
         {
-            this._clientRepository = new ClientRepository(new HotelReservationManagerDb());
+            this._clientRepository = new ClientRepository(new HotelReservationsManagerDb());
         }
 
         public ActionResult ClientIndex(ClientsIndexVM model)
@@ -84,7 +82,7 @@ namespace HotelReservationManager.Controllers
                 };
             }
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 
@@ -127,7 +125,7 @@ namespace HotelReservationManager.Controllers
             item = new ClientsEditVM();
 
 
-            HotelReservationManagerDb context = new HotelReservationManagerDb();
+            HotelReservationsManagerDb context = new HotelReservationsManagerDb();
 
             context.Dispose();
 

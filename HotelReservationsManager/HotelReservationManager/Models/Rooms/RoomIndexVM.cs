@@ -1,5 +1,5 @@
-﻿using HotelReservationManager.Models.Filters;
-using HotelReservationManager.Models.Rooms;
+﻿using HotelReservationsManager.Models.Filters;
+using HotelReservationsManager.Models.Rooms;
 using System.Collections.Generic;
 
 namespace HotelReservationsManager.Models.Rooms
