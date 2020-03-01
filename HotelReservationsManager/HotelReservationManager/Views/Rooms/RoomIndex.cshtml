@@ -21,7 +21,7 @@
                 <div class="input-group">
                     @Html.EditorFor(model => model.Filter.Capacity, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Capacity" } })
                     @Html.EditorFor(model => model.Filter.roomType, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Room Type" } })
-                    @Html.EditorFor(model => model.Filter.IsFree, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Is free" } })
+                    @Html.EditorFor(model => model.Filter.IsFree, new { htmlAttributes = new { @class = "form-control bg-dark border-5 big", placeholder = "Is free" } })
                     
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">
@@ -41,10 +41,11 @@
             }
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-bordered">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <td>Id</td>
                             <th>Capacity</th>
                             <th>Type</th>
                             <th>Is Free</th>
@@ -54,6 +55,7 @@
                     </thead>
                     <tfoot>
                         <tr>
+                            <td>Id</td>
                             <th>Capacity</th>
                             <th>Type</th>
                             <th>Is Free</th>
@@ -65,12 +67,13 @@
                         @foreach (var item in Model.Items)
                         {
                         <tr>
+                            <td>@item.Id</td>
                             <td>@item.Capacity</td>
                             <td>@item.Type</td>
                             <td>@item.IsFree</td>
                             <td>@item.PriceForAdult</td>
                             <td>@item.PriceForChild</td>
-                            
+
                             @if (loggedUser.UserName == "admin")
                             {
                                 <td>

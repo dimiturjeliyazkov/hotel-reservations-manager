@@ -12,7 +12,7 @@
     
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top bg-success">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    
+
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (loggedUser == null)
                     {
@@ -32,12 +32,22 @@
                     }
                     @if (loggedUser != null)
                     {
-                        <li>@Html.ActionLink("Rooms", "RoomIndex", "Rooms")</li>
-                        <li>@Html.ActionLink("LogOut", "Logout", "Home")</li>
-                    }
-                    @if (loggedUser != null && loggedUser.UserName == "admin")
-                    {
-                        <li>@Html.ActionLink("Users", "AdminIndex", "Users")</li>
+                        if (loggedUser.IsActiveAccount == true)
+                        {
+                            if (loggedUser.UserName == "admin")
+                            {
+                                <li>@Html.ActionLink("Users", "AdminIndex", "Users")</li>
+                            }
+                            <li>@Html.ActionLink("Rooms", "RoomIndex", "Rooms")</li>
+                            <li>@Html.ActionLink("Clients", "ClientIndex", "Clients")</li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        }
+
                     }
                 </ul>
             </div>

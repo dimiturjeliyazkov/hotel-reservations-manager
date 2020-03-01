@@ -1,28 +1,28 @@
-﻿@model HotelReservationsManager.Models.UsersIndexVM
+﻿@model HotelReservationsManager.Models.Clients.ClientsIndexVM
 
 @{
     var loggedUser = HotelReservationsManager.Models.AuthenticationManager.LoggedUser;
-    ViewBag.Title = "Users index";
-    
+    ViewBag.Title = "ClientIndex";
+
 }
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Users</h1>
-    <p class="mb-4">List of all users</p>
+    <h1 class="h2 mb-2 glyphicon-bold text-grey-800">Clients</h1>
+    <p class="mb-4">List of all clients</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            @using (Html.BeginForm("AdminIndex", "Users", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }))
+            @using (Html.BeginForm("ClientIndex", "Clients", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }))
             {
                 <div class="input-group">
-                    @Html.EditorFor(model => model.Filter.Username, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Username" } })
-                    @Html.EditorFor(model => model.Filter.FirstName, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "First name" } })
-                    @Html.EditorFor(model => model.Filter.LastName, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Last name" } })
-                    @Html.EditorFor(model => model.Filter.Email, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Email" } })
+                    @Html.EditorFor(model => model.Filter.Forename, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "ForeName" } })
+                    @Html.EditorFor(model => model.Filter.SurName, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "SureName" } })
+                    @Html.EditorFor(model => model.Filter.IsAdult, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Is free" } })
+
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">
                             <i class="fas fa-search fa-sm">Search</i>
@@ -30,71 +30,61 @@
                     </div>
                 </div>
             }
-            @if (loggedUser.UserName == "admin")
-            {
-                <a href="@Url.Action("Add", "Users")" class="btn btn-success btn-icon-split" style="float: right">
+            
+            
+                <a href="@Url.Action("Add", "Clients")" class="btn btn-success btn-icon-split" style="float: right">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
-                    <span class="text">Create new user</span>
+                    <span class="text">Create new client</span>
                 </a>
-            }
+            
         </div>
         <div class="card-body">
             <div class="table-bordered">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>First name</th>
-                            <th>Last name</th>
+                            <td>Id</td>
+                            <th>First Name</th>
+                            <th>Second Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
-                            <th>Is Active Account</th>
-                            @if (loggedUser.UserName == "Admin")
-                            {
-                                <th>href="@Url.Action("Add", "Rooms")" class="btn btn-success btn-icon-split" style="float: right</th>
-                            }
+                            <th>Is Adult</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Username</th>
-                            <th>First name</th>
-                            <th>Last name</th>
+                            <td>Id</td>
+                            <th>First Name</th>
+                            <th>Second Name</th>
+                            <th>Last Name</th>
                             <th>Email</th>
-                            <th>Is Active Account</th>
+                            <th>Is Adult</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         @foreach (var item in Model.Items)
                         {
-                        <tr>
-                            <td>@item.Username</td>
-                            <td>@item.FirstName</td>
-                            <td>@item.LastName</td>
-                            <td>@item.Email</td>
-                            <td>@item.IsActive </td>
-                            <th>
-                            </th>
-                            @if (loggedUser.UserName == "admin")
-                            {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Forename </td>
+                                <td>@item.MiddleName </td>
+                                <td>@item.SurName</td>
+                                <td>@item.Email</td>
+                                <td>@item.IsAdult</td>
                                 <td>
-                                    <a href="@Url.Action("Edit", "Users", new {Id = item.Id})" class="btn btn-primary btn-icon-split">
+                                     <a href="@Url.Action("Edit", "Clients", new {Id = item.Id})" class="btn btn-primary btn-icon-split">
                                         <span class="text">Edit</span>
-                                    </a>
+                                     </a>
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("Delete", "Users", new {Id = item.Id})" class="btn btn-info btn-toolbar">
+                                    <a href="@Url.Action("Delete", "Clients", new {Id = item.Id})" class="btn btn-info btn-toolbar">
                                         <i class="fas fa-trash">Delete</i>
-                                    </a>
-                                </td>
-                            }
-                            else
-                            {
-
-                            }
-                        </tr>
-                        }
+                                   </a>
+                               </td>
+                            </tr>
+                         }
                     </tbody>
                 </table>
             </div>

@@ -60,7 +60,8 @@ namespace HotelReservationManager.Controllers
                 Username = u.UserName,
                 FirstName = u.Forename,
                 LastName = u.SurName,
-                Email = u.Email
+                Email = u.Email,
+                IsActive = u.IsActiveAccount
             }).ToList();
 
             return View(model);
@@ -107,7 +108,8 @@ namespace HotelReservationManager.Controllers
                 SurName = model.LastName,
                 UserName = model.Username,
                 Password = model.Password,
-                Email = model.Email
+                Email = model.Email,
+                IsActiveAccount = model.IsActiveAccount
             };
 
             if (user.Id > 0)

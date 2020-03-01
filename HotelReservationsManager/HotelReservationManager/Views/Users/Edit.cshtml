@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-   
+
 }
 
 <div class="container">
@@ -18,23 +18,48 @@
                         @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "user" }))
                         {
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="form-group row">
                                     @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "First name" } })
+                                    firstName
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.SecondName, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Second Name" } })
+                                    SecondName
+                                </div>
+                                <div class="form-group">
                                     @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Last name" } })
+                                    Last name
                                 </div>
                             </div>
                             <div class="form-group">
                                 @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Username" } })
+                                User name
                             </div>
                             <div class="form-group">
                                 @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user", placeholder = "Password" })
+                                password
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Phone Number" } })
+                                PhoneNumber
                             </div>
                             <div class="form-group">
                                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Email" } })
+                                Email
                             </div>
-                            <input type="submit" value="Save" class="btn btn-primary btn-user btn-block" />
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.AppointmentDate, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Appointment Date" } })
+                                AppointmentDate
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.IsActiveAccount, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "IsActiveAccount" } })
+                                IsActiveAccount
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.DateOfDismissal, new { htmlAttributes = new { @class = "form-control form-control-user", placeholder = "Date Of Dismissal" } })
+                                DateOfDismissal
+                            </div>
+                            <input type="submit" value="Save" class="btn btn-success btn-user btn-block" />
                         }
                         <hr>
                     </div>
@@ -43,3 +68,4 @@
         </div>
     </div>
 </div>
+

@@ -14,6 +14,15 @@ namespace HotelReservationManager.Controllers
             return View();
         }
 
+        public ActionResult PermissionDenied()
+        {
+            return View();
+        }
+
+        public ActionResult ClientIndex()
+        {
+            return View();
+        }
         public ActionResult AdminIndex()
         {
             return View();
@@ -47,6 +56,8 @@ namespace HotelReservationManager.Controllers
             {
                 return RedirectToAction("AdminIndex", "Users");
             }
+            else if(AuthenticationManager.LoggedUser.IsActiveAccount == false)
+                return RedirectToAction("PermissionDenied", "Home");
             else return RedirectToAction("RoomIndex", "Rooms");
         }
        
