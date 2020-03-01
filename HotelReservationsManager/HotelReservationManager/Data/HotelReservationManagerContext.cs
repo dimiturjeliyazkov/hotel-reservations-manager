@@ -19,6 +19,6 @@ namespace HotelReservationManager.Data
         {
         }
 
-        public System.Data.Entity.DbSet<HotelReservationsManager.Entities.User> Users { get; set; }
+        public System.Data.Entity.DbSet<HotelReservationsManager.Entities.User> Rooms { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace HotelReservationManager.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "Rooms",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -43,7 +43,7 @@ namespace HotelReservationManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Rooms", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,9 +64,9 @@ namespace HotelReservationManager.Migrations
                 {
                     table.PrimaryKey("PK_Reservations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reservations_Users_ReservationMakerId",
+                        name: "FK_Reservations_Rooms_ReservationMakerId",
                         column: x => x.ReservationMakerId,
-                        principalTable: "Users",
+                        principalTable: "Rooms",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -126,7 +126,7 @@ namespace HotelReservationManager.Migrations
                 name: "Reservations");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Rooms");
 
             migrationBuilder.DropTable(
                 name: "Rooms");

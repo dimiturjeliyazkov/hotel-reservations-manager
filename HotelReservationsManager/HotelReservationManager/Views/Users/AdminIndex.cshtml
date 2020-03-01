@@ -16,7 +16,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            @using (Html.BeginForm("Index", "Users", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }))
+            @using (Html.BeginForm("AdminIndex", "Users", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }))
             {
                 <div class="input-group">
                     @Html.EditorFor(model => model.Filter.Username, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Username" } })
@@ -25,7 +25,7 @@
                     @Html.EditorFor(model => model.Filter.Email, new { htmlAttributes = new { @class = "form-control bg-light border-0 small", placeholder = "Email" } })
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-search fa-sm"></i>
+                            <i class="fas fa-search fa-sm">Search</i>
                         </button>
                     </div>
                 </div>
@@ -68,27 +68,26 @@
                                 <td>@item.LastName</td>
                                 <td>@item.Email</td>
                                 <th>
-                                    <a href="@Url.Action("Details", "Users", new {Id = item.Id})" class="btn btn-info btn-icon-split">
-                                        <span class="text">Details</span>
+                                    <a href="@Url.Action("Add", "Users")" class="btn btn-success btn-icon-split">
+                                        <span class="text">Add</span>
                                     </a>
                                 </th>
                                 @if (loggedUser.UserName == "admin")
                                 {
                                     <td>
-                                        <a href="@Url.Action("Edit", "Users", new {Id = item.Id})" class="btn btn-warning btn-icon-split">
+                                        <a href="@Url.Action("Edit", "Users", new {Id = item.Id})" class="btn btn-primary btn-icon-split">
                                             <span class="text">Edit</span>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="@Url.Action("Delete", "Users", new {Id = item.Id})" class="btn btn-danger btn-circle">
+                                        <a href="@Url.Action("Delete", "Users", new {Id = item.Id})" class="btn btn-info btn-toolbar">
                                             <i class="fas fa-trash">Delete</i>
                                         </a>
                                     </td>
                                 }
                                 else
                                 {
-                                    <td></td>
-                                    <td></td>
+                                    
                                 }
                             </tr>
                         }

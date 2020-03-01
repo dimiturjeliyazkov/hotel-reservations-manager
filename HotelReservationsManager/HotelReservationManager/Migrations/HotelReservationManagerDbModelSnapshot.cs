@@ -154,7 +154,7 @@ namespace HotelReservationManager.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("HotelReservationsManager.Entities.Client", b =>

@@ -49,14 +49,20 @@ namespace HotelReservationManager.Controllers
             }
             else return RedirectToAction("RoomIndex", "Rooms");
         }
-
+       
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            AuthenticationManager.Logout();
 
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

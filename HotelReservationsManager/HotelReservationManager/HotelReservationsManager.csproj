@@ -254,14 +254,18 @@
     </Compile>
     <Compile Include="Migrations\HotelReservationManagerDbModelSnapshot.cs" />
     <Compile Include="Models\AuthenticationManager.cs" />
+    <Compile Include="Models\Filters\RoomsFilter.cs" />
+    <Compile Include="Models\Rooms\RoomIndexVM.cs" />
     <Compile Include="Models\Filters\UsersFilter.cs" />
     <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\PagerVM.cs" />
-    <Compile Include="Models\UserIndexVM.cs" />
-    <Compile Include="Models\UsersDetailsVM.cs" />
-    <Compile Include="Models\UsersEditVM.cs" />
-    <Compile Include="Models\UsersVM.cs" />
+    <Compile Include="Models\Rooms\RoomsVM.cs" />
+    <Compile Include="Models\Users\UserIndexVM.cs" />
+    <Compile Include="Models\Users\UsersDetailsVM.cs" />
+    <Compile Include="Models\Users\UsersEditVM.cs" />
+    <Compile Include="Models\Users\UsersVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
@@ -303,6 +307,8 @@
     <Content Include="Views\Users\AdminIndex.cshtml" />
     <Content Include="Views\Shared\_Template.cshtml" />
     <Content Include="Views\Rooms\RoomIndex.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

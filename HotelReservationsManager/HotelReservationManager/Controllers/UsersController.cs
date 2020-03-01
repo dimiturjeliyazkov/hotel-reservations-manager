@@ -114,7 +114,7 @@ namespace HotelReservationManager.Controllers
                 this._userRepository.Update(user);
             else this._userRepository.Add(user);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
 
         [System.Web.Mvc.HttpGet]
@@ -123,26 +123,40 @@ namespace HotelReservationManager.Controllers
             User user = this._userRepository.GetOne(id);
             this._userRepository.Remove(user);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
 
         [System.Web.Mvc.HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Add()
         {
-            User user = this._userRepository.GetOne(id);
+            UsersEditVM item;
+                item = new UsersEditVM();
+            
 
-            UsersDetailsVM model = new UsersDetailsVM
+            HotelReservationManagerDb context = new HotelReservationManagerDb();
+
+            context.Dispose();
+
+            return View(item);
+        }
+
+        [System.Web.Http.HttpPost]
+        public ActionResult Add(UsersEditVM model)
+        {
+            User user = new User
             {
-                Id = id,
-                Email = user.Email,
-                Forename = user.Forename,
-                MiddleName = user.MiddleName,
-                SurName = user.MiddleName,
-                UserName = user.UserName,
-                AppointmentDate = user.AppointmentDate
+                Id = model.Id,
+                Forename = model.FirstName,
+                MiddleName = model.SecondName,
+                SurName = model.LastName,
+                UserName = model.Username,
+                Password = model.Password,
+                Email = model.Email
             };
 
-            return View(model);
+             this._userRepository.Add(user);
+
+            return RedirectToAction("AdminIndex");
         }
     }
 }
