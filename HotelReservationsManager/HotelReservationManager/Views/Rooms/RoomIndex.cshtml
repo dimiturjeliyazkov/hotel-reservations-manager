@@ -30,13 +30,13 @@
                     </div>
                 </div>
             }
-            @if (loggedUser.UserName == "Admin")
+            @if (loggedUser.UserName == "admin")
             {
-                <a href="@Url.Action("Edit", "Rooms")" class="btn btn-success btn-icon-split" style="float: right">
+                <a href="@Url.Action("Add", "Rooms")" class="btn btn-success btn-icon-split" style="float: right">
                     <span class="icon text-white-50">
                         <i class="fas fa-arrow-right"></i>
                     </span>
-                    <span class="text">Create new user</span>
+                    <span class="text">Create new room</span>
                 </a>
             }
         </div>
@@ -45,18 +45,20 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
+                            <th>Capacity</th>
+                            <th>Type</th>
+                            <th>Is Free</th>
+                            <th>price for Adults</th>
+                            <th>price for Children</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Username</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
+                            <th>Capacity</th>
+                            <th>Type</th>
+                            <th>Is Free</th>
+                            <th>price for Adults</th>
+                            <th>price for Children</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -68,20 +70,16 @@
                             <td>@item.IsFree</td>
                             <td>@item.PriceForAdult</td>
                             <td>@item.PriceForChild</td>
-                            <th>
-                                <a href="@Url.Action("Add", "Roles")" class="btn btn-success btn-icon-split">
-                                    <span class="text">Add</span>
-                                </a>
-                            </th>
+                            
                             @if (loggedUser.UserName == "admin")
                             {
                                 <td>
-                                    <a href="@Url.Action("Edit", "Roles", new {Id = item.Id})" class="btn btn-primary btn-icon-split">
+                                    <a href="@Url.Action("Edit", "Rooms", new {Id = item.Id})" class="btn btn-primary btn-icon-split">
                                         <span class="text">Edit</span>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="@Url.Action("Delete", "Roles", new {Id = item.Id})" class="btn btn-info btn-toolbar">
+                                    <a href="@Url.Action("Delete", "Rooms", new {Id = item.Id})" class="btn btn-info btn-toolbar">
                                         <i class="fas fa-trash">Delete</i>
                                     </a>
                                 </td>

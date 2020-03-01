@@ -1,0 +1,46 @@
+﻿@model HotelReservationsManager.Models.Rooms.RoomsEditVM
+
+@{
+    ViewBag.Title = "Add";
+
+}
+
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Add Room!</h1>
+                        </div>
+                        @using (Html.BeginForm("Add", "Rooms", FormMethod.Post, new { @class = "room" }))
+                        {
+                            <div class="form-group row">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "Capacity" } })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EnumDropDownListFor(model => model.Type, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "Type" } })
+                                </div>
+                                <div class="col-sm-6">
+                                    @Html.EditorFor(model => model.IsFree, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "Is Free" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.PriceForAdult, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "Adult price" } })
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.PriceForChild, new { htmlAttributes = new { @class = "form-control form-control-room", placeholder = "Child price" } })
+                            </div>
+
+                            <input type="submit" value="Save" class="btn btn-success btn-default btn-block" />
+                        }
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
